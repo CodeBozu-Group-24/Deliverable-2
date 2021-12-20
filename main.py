@@ -43,3 +43,5 @@ plt.ylabel('Officials (Presidents and Vice Presidents)')
 plt.title('Distribution of US Govt. Officials with birthplaces either in West Coast or East Coast')
 plt.legend()
 plt.show()
+output_dir = 'Deliverable-2/plots'
+plt.savefig('graph.png')
