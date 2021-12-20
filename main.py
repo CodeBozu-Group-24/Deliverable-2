@@ -25,11 +25,26 @@ answers_ec = answer.split(' | ')  #list of east coast states
 x = ['West Coast', 'East Coast']
 y = []
 with open('details.csv') as f:
-    line = csv.reader(f)
+    lines = csv.reader(f)
     counter = 0
-    for row in line:
-        for element in answers_wc:
-            if element in row[4].split() == True:
-                counter+=1
-    y.append(counter)
-print(y)    
+    for row in lines:
+        if any(answers_wc[i] in row[4] for i in range(len(answers_wc))) == True:
+            counter+=1 
+    f.close()        
+y.append(counter) 
+
+with open('details.csv') as f:
+    lines = csv.reader(f)
+    counter2 = 0
+    for row in lines:
+        if any(answers_ec[i] in row[4] for i in range(len(answers_ec))) == True:
+            counter2+=1 
+    f.close()        
+y.append(counter2)
+
+plt.bar(x, y, color = 'g', width = 0.72, label = "Distribution")
+plt.xlabel('Coasts')
+plt.ylabel('Officials (Presidents and Vice Presidents)')
+plt.title('Distribution of US Govt. Officials with birthplaces either in West Coast or East Coast.')
+plt.legend()
+plt.show()
