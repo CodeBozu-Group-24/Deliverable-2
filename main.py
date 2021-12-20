@@ -43,3 +43,5 @@ plt.ylabel('Officials (Presidents and Vice Presidents)')
 plt.title('Distribution of US Govt. Officials (Birthplace) in West Coast and East Coast')
 plt.legend()
 plt.show()
+
+months = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
