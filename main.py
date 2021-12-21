@@ -44,4 +44,29 @@ plt.title('Distribution of US Govt. Officials (Birthplace) in West Coast and Eas
 plt.legend()
 plt.show()
 
-months = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
+#relating months of birth and chances of being elected
+months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+indices = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
+y_initial = []
+with open('details.csv') as f:
+    lines = csv.reader(f)
+    counter3 = 0
+    for row in lines:
+        for ind in indices:
+            if str(row[2][5:7]) == ind:
+                y_initial.append(months[indices.index(ind)])
+    f.close()
+
+y_final = []
+for i in range(len(months)):
+    c = y_initial.count(months[i])
+    y_final.append(c)
+
+plt.bar(months, y_final, color = 'b', width = 0.72, label = "Distribution")
+plt.xlabel('Months')
+plt.ylabel('Number of Officials (Presidents and Vice Presidents)')
+plt.title('Number of Officials to Birth Months')
+plt.legend()
+plt.show()   
+
+              
