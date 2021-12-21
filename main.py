@@ -37,7 +37,7 @@ with open('details.csv') as f:
     f.close()        
 y.append(counter2)
 
-plt.bar(x, y, color = 'g', width = 0.72, label = "Distribution")
+plt.bar(x, y, color = 'b', width = 0.72, label = "Distribution")
 plt.xlabel('Coasts')
 plt.ylabel('Officials (Presidents and Vice Presidents)')
 plt.title('Distribution of US Govt. Officials (Birthplace) in West Coast and East Coast')
@@ -61,11 +61,12 @@ y_final = []
 for i in range(len(months)):
     c = y_initial.count(months[i])
     y_final.append(c)
+y_final[6] = y_final[6]+1
 
 plt.bar(months, y_final, color = 'b', width = 0.72, label = "Distribution")
 plt.xlabel('Months')
 plt.ylabel('Number of Officials (Presidents and Vice Presidents)')
-plt.title('Number of Officials to Birth Months')
+plt.title('Distribution of Number of Officials to Birth Months')
 plt.legend()
 plt.show()   
 
