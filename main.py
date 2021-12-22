@@ -68,6 +68,30 @@ plt.xlabel('Months')
 plt.ylabel('Number of Officials (Presidents and Vice Presidents)')
 plt.title('Distribution of Number of Officials to Birth Months')
 plt.legend()
+plt.show() 
+
+#analyzing the distribution on the basis of winter or not winter
+x_wnw = ["Winter", "Not Winter"]
+y_wnw = []
+with open('details.csv') as f:
+    lines = csv.reader(f)
+    counter_w = 0
+    counter_nw = 0
+    for row in lines:
+            if str(row[2][5:7]) == indices[11] or str(row[2][5:7]) == indices[0] or str(row[2][5:7]) == indices[1]:
+                counter_w += 1
+            elif str(row[2][5:7]) in indices[3:11] == True:
+                counter_nw += 1     
+    y_wnw.append(counter_w)
+    y_wnw.append(counter_nw)                
+    f.close()
+
+plt.bar(x_wnw, y_wnw, color = 'y', width = 0.72, label = "Distribution")
+plt.xlabel('Seasons')
+plt.ylabel('Number of Officials (Presidents and Vice Presidents)')
+plt.title('Seasonal Distribution of Birth Months')
+plt.legend()
 plt.show()   
+
 
               
