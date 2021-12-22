@@ -78,9 +78,9 @@ with open('details.csv') as f:
     counter_w = 0
     counter_nw = 0
     for row in lines:
-            if str(row[2][5:7]) == indices[11] or str(row[2][5:7]) == indices[0] or str(row[2][5:7]) == indices[1]:
+            if str(row[2][5:7]) in ['01', '02', '12']:
                 counter_w += 1
-            elif str(row[2][5:7]) in indices[3:11] == True:
+            elif str(row[2][5:7]) in ['03', '04', '05', '06', '07', '08', '09', '10', '11']:
                 counter_nw += 1     
     y_wnw.append(counter_w)
     y_wnw.append(counter_nw)                
@@ -89,7 +89,7 @@ with open('details.csv') as f:
 plt.bar(x_wnw, y_wnw, color = 'y', width = 0.72, label = "Distribution")
 plt.xlabel('Seasons')
 plt.ylabel('Number of Officials (Presidents and Vice Presidents)')
-plt.title('Seasonal Distribution of Birth Months')
+plt.title('Seasonal Distribution of Birth Months of Officials')
 plt.legend()
 plt.show()   
 
