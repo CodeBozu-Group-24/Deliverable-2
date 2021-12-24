@@ -11,5 +11,5 @@ ids = list(data['Politician'])
 
 linkz = [WikipediaPolitician.getLinkFromName(x) for x in ids]
 for link in linkz:
-    data = requests.get(link)
+    data = requests.get(link).text
     soup = BeautifulSoup(data, 'lxml')
