@@ -93,5 +93,7 @@ plt.title('Seasonal Distribution of Birth Months of Officials')
 plt.legend()
 plt.show()   
 
+#Occupation
+
 
               
