@@ -3,6 +3,7 @@ import requests
 import csv
 from csv import writer
 import pandas as pd
+from WikipediaClasses import WikipediaPolitician
 #presidents
 data21_pres = requests.get('https://en.wikipedia.org/wiki/Category:21st-century_presidents_of_the_United_States').text
 soup21_pres = BeautifulSoup(data21_pres, 'lxml')
@@ -21,3 +22,6 @@ soup19_vp = BeautifulSoup(data19_vp, 'lxml')
 data = pd.read_csv(r'details.csv')
 ids = list(data['Politician'])
 print(ids)
+
+linkz = [WikipediaPolitician.getLinkFromName(x) for x in ids]
+print(linkz)
