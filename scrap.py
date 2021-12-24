@@ -3,6 +3,7 @@ import requests
 import csv
 from csv import writer
 import pandas as pd
+import WikipediaClasses
 #presidents
 data21_pres = requests.get('https://en.wikipedia.org/wiki/Category:21st-century_presidents_of_the_United_States').text
 soup21_pres = BeautifulSoup(data21_pres, 'lxml')
@@ -20,4 +21,9 @@ soup19_vp = BeautifulSoup(data19_vp, 'lxml')
 
 data = pd.read_csv(r'details.csv')
 ids = list(data['Politician'])
-print(ids)
+for title in soup21_pres.findAll('div', {"id":"mw-pages"}):
+    names_21 = title.find_all('li')
+list21_pres = []    
+for i in range(len(names_21)):
+    if names_21[i].get_text() in ids:
+
