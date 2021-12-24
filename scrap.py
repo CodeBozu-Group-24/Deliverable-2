@@ -12,4 +12,4 @@ ids = list(data['Politician'])
 linkz = [WikipediaPolitician.getLinkFromName(x) for x in ids]
 for link in linkz:
     data = requests.get(link)
-
+    soup = BeautifulSoup(data, 'lxml')
