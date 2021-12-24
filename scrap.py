@@ -28,9 +28,5 @@ linkz = [WikipediaPolitician.getLinkFromName(x) for x in ids]
 for link in linkz:
     data = requests.get(link).text
     soup = BeautifulSoup(data, 'lxml')
-print(linkz)
 
-for l in linkz:
-    data = requests.get(l).text
-    soup = BeautifulSoup(data, "lxml")
     
