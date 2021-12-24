@@ -22,16 +22,16 @@ soup19_vp = BeautifulSoup(data19_vp, 'lxml')
 
 data = pd.read_csv(r'details.csv')
 ids = list(data['Politician'])
-<<<<<<< HEAD
+
 for title in soup21_pres.findAll('div', {"id":"mw-pages"}):
     names_21 = title.find_all('li')
 list21_pres = []    
 for i in range(len(names_21)):
     if names_21[i].get_text() in ids:
 
-=======
+
 print(ids)
 
 linkz = [WikipediaPolitician.getLinkFromName(x) for x in ids]
 print(linkz)
->>>>>>> ad86670064c01244dd7f47c7dbbff6946c64b1f7
+
