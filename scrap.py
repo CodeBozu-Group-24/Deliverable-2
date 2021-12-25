@@ -16,14 +16,14 @@ linkz = [WikipediaPolitician.getLinkFromName(x) for x in ids]
 #print(linkz)
 
 counter = Counter()
-
+"""
 for link in linkz:
     data = requests.get(link).text
     soup = BeautifulSoup(data, 'lxml')
     #occupation = soup.findAll('div', class_='hlist hlist-separated')
     #print(occupation.parent.get_text())
     #print("============================================================")
-
+"""
 for official in ids:
     input_wolfram = "What were the occupations of {}?".format(official)
     app_id = "UY8J28-KPKYW5Y2RT"
@@ -33,5 +33,5 @@ for official in ids:
     print(answer)
     list = answer.split(" | ")
     counter.update(list)
-    print(counter)
-    print("==============================")
+    
+print(counter)
