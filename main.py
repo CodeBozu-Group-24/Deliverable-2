@@ -94,6 +94,6 @@ plt.legend()
 plt.show()   
 
 #Occupation
-
+import scrap
 
               
