@@ -6,6 +6,7 @@ import pandas as pd
 from WikipediaClasses import WikipediaPolitician
 import wolframalpha
 from collections import Counter
+import matplotlib.pyplot as plt
 
 
 data = pd.read_csv(r'details.csv')
@@ -30,9 +31,8 @@ for official in ids:
     client = wolframalpha.Client(app_id)
     result = client.query(input_wolfram)  
     answer = next(result.results).text  
-    print(answer)
-    list = answer.split(" | ")
-    counter.update(list)
+    listt = answer.split(" | ")
+    counter.update(listt)
 
 toGraph = counter.most_common(30)
 people = list(zip(*toGraph))[0]
