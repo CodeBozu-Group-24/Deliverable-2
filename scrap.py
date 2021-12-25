@@ -24,14 +24,14 @@ for link in linkz:
     #print(occupation.parent.get_text())
     #print("============================================================")
 
-    for official in ids:
-        input_wolfram = "What were the occupations of {}?".format(official)
-        app_id = "UY8J28-KPKYW5Y2RT"
-        client = wolframalpha.Client(app_id)
-        result = client.query(input_wolfram)  
-        answer = next(result.results).text  
-        print(answer)
-        list = answer.split(" | ")
-        counter.update(list)
-        print(counter)
-        print("==============================")
+for official in ids:
+    input_wolfram = "What were the occupations of {}?".format(official)
+    app_id = "UY8J28-KPKYW5Y2RT"
+    client = wolframalpha.Client(app_id)
+    result = client.query(input_wolfram)  
+    answer = next(result.results).text  
+    print(answer)
+    list = answer.split(" | ")
+    counter.update(list)
+    print(counter)
+    print("==============================")
