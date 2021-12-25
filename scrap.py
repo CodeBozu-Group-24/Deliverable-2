@@ -13,5 +13,7 @@ linkz = [WikipediaPolitician.getLinkFromName(x) for x in ids]
 for link in linkz:
     data = requests.get(link).text
     soup = BeautifulSoup(data, 'lxml')
-
+    occupation = soup.findAll('div', class_='hlist hlist-separated')
+    print(occupation[-1])
+    print("============================================================")
     
