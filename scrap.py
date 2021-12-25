@@ -33,5 +33,13 @@ for official in ids:
     print(answer)
     list = answer.split(" | ")
     counter.update(list)
-    
-print(counter)
+
+toGraph = counter.most_common(30)
+people = list(zip(*toGraph))[0]
+popularityy = list(zip(*toGraph))[1]
+plt.pie(popularityy, labels=people, autopct='%1.2f%%')
+
+
+plt.title("Distribution of Officials on the basis of Occupations")
+plt.tight_layout()
+plt.show()
