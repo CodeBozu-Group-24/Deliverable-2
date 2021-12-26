@@ -4,7 +4,7 @@ import csv
 import wolframalpha
 import matplotlib.pyplot as plt
 from csv import reader
-
+"""
 input_wolfram_wc = "What are the West Coast states of the U.S.?"
 app_id = "UY8J28-KPKYW5Y2RT"
 client = wolframalpha.Client(app_id)
@@ -97,7 +97,7 @@ plt.show()
 
 #Occupation
 import scrap
-
+"""
 #family members  
 data = requests.get('https://en.wikipedia.org/wiki/Political_family').text
 soup = BeautifulSoup(data, 'lxml')
@@ -107,4 +107,11 @@ for string in text:
     str = string.text
     if 'family' in str:
         list_all.append(str)
-print(list_all[5:13])
+list_final = list_all[5:13]
+list_final.append('Harrison family') #got excluded due to inconsistency
+list_final.append('Clinton family')  #got excluded due to inconsistency
+list2 = []
+for ele in list_final:
+    if ele not in list2:
+        list2.append(ele)
+        
