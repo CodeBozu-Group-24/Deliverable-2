@@ -138,7 +138,7 @@ y.append(counter)
 y.append(len(ids)-counter)
 
 x = ["Politicians", "Not Politicians"]
-plt.bar(x, y, color = 'b', width = 0.72, label = "Distribution")
+plt.bar(x, y, color = 'm', width = 0.72, label = "Distribution")
 plt.ylabel('No. of Officials (Presidents and Vice Presidents)')
 plt.title('Distribution of US Govt. Officials on the basis of Parental Political Background')
 plt.legend()
