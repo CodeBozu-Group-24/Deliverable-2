@@ -4,7 +4,8 @@ import csv
 import wolframalpha
 import matplotlib.pyplot as plt
 from csv import reader
-
+import pandas as pd
+"""
 input_wolfram_wc = "What are the West Coast states of the U.S.?"
 app_id = "UY8J28-KPKYW5Y2RT"
 client = wolframalpha.Client(app_id)
@@ -97,7 +98,7 @@ plt.show()
 
 #Occupation
 import scrap
-
+"""
 #family members  
 data = requests.get('https://en.wikipedia.org/wiki/Political_family').text
 soup = BeautifulSoup(data, 'lxml')
@@ -114,3 +115,32 @@ list2 = []
 for ele in list_final:
     if ele not in list2:
         list2.append(ele)
+names = []
+
+for ele in list2:
+    ele = ele.split()
+    if 'The' in ele and 'family' in ele:
+        names.append(ele[1])
+    elif 'family' in ele:
+        names.append(ele[0])    
+
+data = pd.read_csv(r'details.csv')
+ids = list(data['Politician'])
+
+counter = 0
+for elements in ids:
+    str = elements.split()
+    for ele in names:
+        if ele in str:
+            counter+=1
+y = []
+y.append(counter)
+y.append(len(ids)-counter)
+
+x = ["Politicians", "Not Politicians"]
+plt.bar(x, y, color = 'b', width = 0.72, label = "Distribution")
+plt.xlabel('Coasts')
+plt.ylabel('No. of Officials (Presidents and Vice Presidents)')
+plt.title('Distribution of US Govt. Officials on the basis of Parental Political Background')
+plt.legend()
+plt.show()       
