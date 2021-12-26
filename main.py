@@ -1,8 +1,10 @@
+from bs4 import BeautifulSoup
+import requests
 import csv
 import wolframalpha
 import matplotlib.pyplot as plt
 from csv import reader
-
+"""
 input_wolfram_wc = "What are the West Coast states of the U.S.?"
 app_id = "UY8J28-KPKYW5Y2RT"
 client = wolframalpha.Client(app_id)
@@ -95,5 +97,9 @@ plt.show()
 
 #Occupation
 import scrap
-
-              
+"""
+#family members  
+data = requests.get('https://en.wikipedia.org/wiki/Political_family').text
+soup = BeautifulSoup(data, 'lxml')
+text = soup.findAll('div', class_='thumb tright')
+print(text.parent.get_text())
