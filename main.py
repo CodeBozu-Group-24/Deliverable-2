@@ -101,5 +101,8 @@ import scrap
 #family members  
 data = requests.get('https://en.wikipedia.org/wiki/Political_family').text
 soup = BeautifulSoup(data, 'lxml')
-text = soup.findAll('div', class_='thumb tright')
-print(text.parent.get_text())
+text = soup.findAll('a', href=True)
+for i in text:
+    pass
+#print(text)
+
